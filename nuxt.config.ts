@@ -1,5 +1,17 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  app: {
+    head: {
+      link: [
+        {
+          rel: "icon",
+          type: "image/png",
+          href: "/airdrop.png",
+          sizes: "32x32",
+        },
+      ],
+    },
+  },
   modules: ["@nuxtjs/tailwindcss", "@nuxt/icon", "@pinia/nuxt"],
   icon: {
     serverBundle: {
