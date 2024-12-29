@@ -13,3 +13,9 @@ export const createUniqueId = (): string => {
   generatedIds.add(id)
   return id
 }
+
+export const toTitleCase = (text: string) => {
+  return text
+    .toLowerCase() // Ubah semua huruf menjadi huruf kecil
+    .replace(/\b\w/g, (char) => char.toUpperCase()) // Huruf pertama tiap kata menjadi kapital
+}
