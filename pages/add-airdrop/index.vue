@@ -1,4 +1,14 @@
 <template>
+  <Head>
+    <Title>Add Airdrop</Title>
+    <Meta
+      name="description"
+      content="Airdrop Dashboard is a platform to efficiently manage and monitor your
+      airdrop campaigns. Create, track and complete airdrop tasks
+      easily!"
+    />
+  </Head>
+
   <section class="m-4 min-h-[60%] my-10">
     <div class="mt-8">
       <h1 class="text-2xl">Form Add new airdrop</h1>
@@ -153,7 +163,7 @@
 
         <div class="w-full p-2">
           <textarea
-            className="textarea  w-full my-4 h-64 bg-slate-100 text-black dark:text-white"
+            className="textarea  w-full my-4 h-64 bg-slate-100 text-black "
             v-model="store.airdrop.notes"
             placeholder="Type your notes here (optional)"
           ></textarea>

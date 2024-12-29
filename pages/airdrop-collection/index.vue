@@ -1,4 +1,14 @@
 <template lang="">
+  <Head>
+    <Title>Collection</Title>
+    <Meta
+      name="description"
+      content="Airdrop Dashboard is a platform to efficiently manage and monitor your
+      airdrop campaigns. Create, track and complete airdrop tasks
+      easily!"
+    />
+  </Head>
+
   <section class="h-screen py-4 px-6 flex flex-col gap-10">
     <div class="content-1">
       <div class="flex flex-col gap-3">
@@ -6,7 +16,7 @@
         <input
           type="text"
           placeholder="Search airdrop "
-          class="input input-bordered input-primary w-full text-black"
+          class="input input-bordered input-primary w-full text-black bg-white"
           v-model="store.search"
         />
         <div class="flex flex-wrap gap-2">

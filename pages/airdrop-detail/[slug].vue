@@ -1,5 +1,15 @@
 <template>
   <section class="mx-10 mb-16">
+    <Head>
+      <Title>{{ toTitleCase(title) }}</Title>
+      <Meta
+        name="description"
+        content="Airdrop Dashboard is a platform to efficiently manage and monitor your
+      airdrop campaigns. Create, track and complete airdrop tasks
+      easily!"
+      />
+    </Head>
+
     <div v-for="item in filteredAirdrop">
       <DetailHeader :item="item" />
 
@@ -124,6 +134,7 @@ const store = useMyAirdrop()
 
 const route = useRoute()
 const router = useRouter()
+const title = ref<string>("Wait")
 
 // const airdrops = ref<AirdropsType[]>([])
 
@@ -133,7 +144,9 @@ const filteredAirdrop = computed(() => {
 
 onMounted(() => {
   store.fetchAirdrops()
-  console.log(filteredAirdrop.value)
+  setTimeout(() => {
+    title.value = filteredAirdrop.value[0]?.name
+  }, 500)
 })
 </script>
 <style></style>

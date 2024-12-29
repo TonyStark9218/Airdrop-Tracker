@@ -1,4 +1,14 @@
 <template lang="">
+  <Head>
+    <Title>Home</Title>
+    <Meta
+      name="description"
+      content="Airdrop Dashboard is a platform to efficiently manage and monitor your
+      airdrop campaigns. Create, track and complete airdrop tasks
+      easily!"
+    />
+  </Head>
+
   <section class="carousel flex flex-col m-4">
     <div
       class="bg-slate-700 h-72 w-[350px] md:w-[700px] xl:w-full flex flex-col md:flex-row justify-center md:gap-16 items-center bg-opacity-45 rounded-md mb-10 mx-auto"
