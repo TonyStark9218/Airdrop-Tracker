@@ -283,5 +283,76 @@ export const useMyAirdrop = defineStore("myAirdrop", {
       ) as HTMLDialogElement
       modal?.showModal()
     },
+    handleAirdropsImport(event: Event) {
+      const input = event.target as HTMLInputElement
+
+      const file = input.files?.[0]
+      if (!file) return
+
+      if (file.type !== "application/json") {
+        alert("Please upload a valid JSON file.")
+        input.value = ""
+        return
+      }
+
+      const reader = new FileReader()
+      reader.onload = (e) => {
+        try {
+          const data = JSON.parse(e.target?.result as string)
+
+          if (!Array.isArray(data)) {
+            alert("Invalid airdrops data format.")
+            input.value = ""
+            return
+          }
+
+          const existingData = JSON.parse(
+            localStorage.getItem("airdrops") || "[]"
+          )
+
+          if (JSON.stringify(existingData) === JSON.stringify(data)) {
+            alert("The imported data is identical to the existing data.")
+            input.value = "" // Reset input
+            return
+          }
+
+          localStorage.setItem("airdrops", JSON.stringify(data))
+          this.fetchAirdrops()
+          this.isSuccess = true
+          this.message = "Successfully imported data!"
+
+          setTimeout(() => {
+            this.isSuccess = false
+            this.message = ""
+          }, 2000)
+        } catch (error) {
+          alert("Failed to import airdrops data. Please check the file format.")
+        } finally {
+          input.value = ""
+        }
+      }
+      reader.readAsText(file)
+    },
+
+    exportAirdrops(filename = "airdrops.json") {
+      const airdrops = localStorage.getItem("airdrops")
+
+      if (!airdrops) {
+        alert("No data found for 'airdrops'!")
+        return
+      }
+
+      const blob = new Blob([airdrops], { type: "application/json" })
+      const url = URL.createObjectURL(blob)
+
+      const link = document.createElement("a")
+      link.href = url
+      link.download = filename
+      document.body.appendChild(link)
+      link.click()
+
+      document.body.removeChild(link)
+      URL.revokeObjectURL(url)
+    },
   },
 })

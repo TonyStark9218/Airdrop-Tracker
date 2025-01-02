@@ -9,7 +9,7 @@
     />
   </Head>
 
-  <section class="h-screen py-4 px-6 flex flex-col gap-10">
+  <section class="min-h-screen py-4 px-6 flex flex-col gap-10">
     <div class="content-1">
       <div class="flex flex-col gap-3">
         <h1 class="text-xl">Airdrop Collection</h1>
@@ -23,8 +23,10 @@
           <button
             v-for="filter in filterByType"
             :key="filter.id"
-            class="btn btn-sm border-none hover:bg-blue-500"
-            :class="filter.active == true ? 'bg-blue-500 text-white ' : ''"
+            class="btn btn-sm border-none hover:bg-blue-500 text-black"
+            :class="
+              filter.active == true ? 'bg-blue-500 text-white ' : 'bg-white'
+            "
             @click="airdropFilter(filter)"
           >
             {{ filter.name.replace("Airdrop", "") }}
@@ -39,11 +41,32 @@
           <span class="text-blue-400">{{ filteredAirdrops.length }}</span>
           airdrop
         </h1>
-        <NuxtLink
-          to="/add-airdrop"
-          class="btn btn-sm bg-blue-500 border-none hover:bg-blue-600 text-white"
-          >+ Add new airdrop</NuxtLink
-        >
+        <div class="flex gap-2">
+          <button
+            @click="store.exportAirdrops()"
+            class="btn btn-sm bg-blue-500 border-none hover:bg-blue-600 text-white"
+          >
+            Eksport Data
+          </button>
+          <input
+            type="file"
+            id="fileInput"
+            accept="application/json"
+            class="hidden"
+            @change="store.handleAirdropsImport"
+          />
+          <label
+            for="fileInput"
+            class="btn btn-sm border-none bg-blue-500 text-white px-4 py-2 cursor-pointer hover:bg-blue-600"
+          >
+            Import Data
+          </label>
+          <!-- <NuxtLink
+            to="/add-airdrop"
+            class="btn btn-sm bg-blue-500 border-none hover:bg-blue-600 text-white"
+            >+ Add new airdrop</NuxtLink
+          > -->
+        </div>
       </div>
 
       <div
