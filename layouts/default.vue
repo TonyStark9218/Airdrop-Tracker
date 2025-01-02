@@ -1,4 +1,14 @@
 <template>
+  <Head>
+    <Title>Dashboard</Title>
+    <Meta
+      name="description"
+      content="Airdrop Dashboard is a platform to efficiently manage and monitor your
+      airdrop campaigns. Create, track and complete airdrop tasks
+      easily!"
+    />
+  </Head>
+
   <div v-if="loading">
     <Loading />
   </div>
