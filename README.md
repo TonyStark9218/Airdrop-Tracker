@@ -3,6 +3,9 @@
 
 Airdrop Dashboard is a platform to efficiently manage and monitor your airdrop campaigns. Create, track and complete airdrop tasks easily!
 
+## Live Preview
+[Airdrop Dashboard](https://my-airdrop-dashboard.vercel.app/)
+
 
 ## FAQ
 
