@@ -81,7 +81,7 @@
         buttonTitle2="Cancel"
       >
         <textarea
-          className="textarea  w-full my-4 h-48 bg-slate-100 text-black dark:text-white"
+          className="textarea  w-full my-4 h-48 bg-slate-100 text-black "
           v-model="store.airdrop.notes"
           placeholder="Type your notes here..."
         ></textarea>
