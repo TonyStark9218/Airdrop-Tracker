@@ -56,7 +56,7 @@
           </div>
           <div
             v-if="item.notes === '' || item.notes == null"
-            class="border-2 border-blue-500 rounded-md h-auto w-96 p-2 text-center"
+            class="border-2 border-blue-500 rounded-md h-auto w-full p-2 text-center"
           >
             Your notes will be shown here.
           </div>
@@ -135,8 +135,6 @@ const store = useMyAirdrop()
 const route = useRoute()
 const router = useRouter()
 const title = ref<string>("Wait")
-
-// const airdrops = ref<AirdropsType[]>([])
 
 const filteredAirdrop = computed(() => {
   return store.airdrops.filter((item) => item.id === route.params.slug)
