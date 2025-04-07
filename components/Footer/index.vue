@@ -11,13 +11,13 @@
       <h1 class="text-xl font-bold">Follow Me</h1>
       <div class="flex flex-col">
         <a
-          href="https://instagram.com/coding.addict_"
+          href="https://t.me/Legend_Aashish"
           target="_blank"
           class="flex items-center gap-1 hover:text-blue-500"
           ><Icon name="mdi:instagram" />Instagram</a
         >
         <a
-          href="https://t.me/adityayfn"
+          href="https://t.me/Legend_Aashish"
           target="_blank"
           class="flex items-center gap-1 hover:text-blue-500"
           ><Icon name="mdi:telegram" />Telegram</a
