@@ -36,13 +36,10 @@
               <option disabled value="">Airdrop Type</option>
               <option
                 v-for="(type, i) in [
-                   'Testnet Airdrop',
-                   'Mainnet Airdrop',
-                   'Retroactive Airdrop',
-                   'Node Airdrop',
-                   'Telegram Airdrop',
-                   'GameFi Airdrop',
-                   'Quest Airdrop',
+                  'Testnet Airdrop',
+                  'Retroactive Airdrop',
+                  'Node Airdrop',
+                  'Telegram Airdrop',
                 ]"
                 :key="i"
                 :value="type"
@@ -141,42 +138,27 @@
             </select>
           </div>
 
-          <div v-for="n in store.taskCount" :key="n" class="mb-4 space-y-2">
-  <!-- Task Link First -->
-  <Input
-    :placeholder="`Task ${n} Link`"
-    :modelValue="store.airdrop.tasks[n - 1]?.link || ''"
-    @update:modelValue="(val) => {
-      if (!store.airdrop.tasks[n - 1]) {
-        store.airdrop.tasks[n - 1] = { name: '', link: val }
-      } else {
-        store.airdrop.tasks[n - 1].link = val
-      }
-    }"
-  />
-
-  <!-- Task Description -->
-  <Input
-    :placeholder="`Task ${n} Description`"
-    :modelValue="store.airdrop.tasks[n - 1]?.name || ''"
-    @update:modelValue="(val) => {
-      if (!store.airdrop.tasks[n - 1]) {
-        store.airdrop.tasks[n - 1] = { name: val, link: '' }
-      } else {
-        store.airdrop.tasks[n - 1].name = val
-      }
-    }"
-  />
-
-  <!-- Error Display (Optional) -->
-  <span
-    v-if="store.errors.tasks[n - 1]"
-    class="text-red-500"
-  >
-    {{ store.errors.tasks[n - 1] }}
-  </span>
-</div>
-
+          <div v-for="n in store.taskCount" :key="n" class="">
+            <Input
+              :placeholder="`Task ${n}`"
+              :modelValue="store.airdrop.tasks[n as number - 1]?.name || ''"
+              @update:modelValue="
+            (val) => {
+              if (!store.airdrop.tasks[n as number - 1]) {
+                store.airdrop.tasks[n as number - 1] = { name: val }
+              } else {
+                store.airdrop.tasks[n as number - 1].name = val
+              }
+            }
+          "
+            />
+            <span
+              v-if="store.errors.tasks[n as number - 1]"
+              class="text-red-500"
+            >
+              {{ store.errors.tasks[(n as number) - 1] }}
+            </span>
+          </div>
         </div>
 
         <div class="w-full p-2">
@@ -228,4 +210,5 @@ onMounted(() => {
 </script>
 
 <style scoped>
+/* Tambahkan gaya sesuai kebutuhan */
 </style>
